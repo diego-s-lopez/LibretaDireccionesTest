@@ -23,7 +23,7 @@ namespace LibretaDirecciones.DataAccess
         public ICollection<Usuario> GetAll()
         {
             lock (_data)
-                return _data;
+                return _data.OrderBy(x=> x.Id).ToList();
         }
 
         public void Create(Usuario obj)

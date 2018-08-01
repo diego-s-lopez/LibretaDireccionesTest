@@ -1,43 +1,49 @@
 ﻿@model UsuariosViewModel
 @{
-    Layout = null;
+    Layout = "_Layout";
 }
 
 <!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    
-    <div class="container">
+<div class="container">
+    <div class="row">
+        <div class="col">
+            Nombre de Usuario
+        </div>
+        <div class="col">
+            Nombre
+        </div>
+        <div class="col-md-2">
+            Activo
+        </div>
+    </div>
+    @foreach (var usuario in Model.Usuarios)
+    {
         <div class="row">
-            <div class="col-md-4">
-                Nombre de Usuario
+            <div class="col">
+                @usuario.NombreUsuario
             </div>
-            <div class="col-md-4">
-                Nombre
+            <div class="col">
+                @usuario.Nombre
             </div>
-            <div class="col-md-4">
-                Activo
+            <div class="col-md-2">
+                @{
+                    string btnValue = usuario.Activo ? "Desactivar" : "Activar";
+                    string activo = usuario.Activo ? "1" : "";
+                }
+                <button data-activo="@activo" onclick="ChangeUserActivo(this, @usuario.Id)">@btnValue</button>
+
+                @*@Html.CheckBoxFor(u => usuario.Activo, new
+                {
+                    id = $"chkUserActivo_{usuario.Id}",
+                    onchange = $"ChangeUserActivo(this, {usuario.Id})"
+                })*@
             </div>
         </div>
-        @foreach (var usuario in Model.Usuarios)
-        {
-            <div class="row">
-                <div class="col-md-4">
-                    @usuario.NombreUsuario
-                </div>
-                <div class="col-md-4">
-                    @usuario.Nombre
-                </div>
-                <div class="col-md-4">
-                    @usuario.Activo
-                </div>
-            </div>
-        }
-    </div>
-</head>
-<body>
-</body>
-</html>
+    }
+</div>
+
+@section Scripts
+{
+    <script src="@Url.Content("/lib/js/Usuarios.js")"></script>
+}

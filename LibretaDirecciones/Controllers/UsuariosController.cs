@@ -14,9 +14,30 @@ namespace LibretaDirecciones.Controllers
         {
             var resp = new UsuariosViewModel();
             resp.Usuarios = _service.ListarUsuarios().Select(x =>
-                new UsuarioViewModel {Activo = x.Activo, NombreUsuario = x.NombreUsuario, Nombre = x.Nombre}).ToList();
+                    new UsuarioViewModel
+ {
+                        Id = x.Id,
+                        Activo = x.Activo,
+                        NombreUsuario = x.NombreUsuario,
+                        Nombre = x.Nombre
+                    })
+                .ToList();
 
             return View(resp);
+        }
+
+        [HttpPost]
+        public IActionResult ChangeActiveUser(int id, bool activo)
+        {
+            try
+            {
+                _service.CambiarEstado(id, activo);
+                return Json(new JsonResponseBase<string>(true, "Se cambio estado correctamente"));
+            }
+            catch (Exception e)
+            {
+                return Json(new JsonResponseBase<string>(false, e.Message));
+            }
         }
 
         public UsuariosController(UsuarioService service)

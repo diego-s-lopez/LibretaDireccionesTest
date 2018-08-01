@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\LibretaDirecciones.Model\LibretaDirecciones.Model.csproj" />
     <ProjectReference Include="..\LibretaDirecciones.DataAccess\LibretaDirecciones.DataAccess.csproj" />
+    <ProjectReference Include="..\LibretaDirecciones.Model\LibretaDirecciones.Model.csproj" />
   </ItemGroup>
 
 </Project>

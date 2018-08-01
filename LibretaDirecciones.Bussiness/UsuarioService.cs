@@ -30,9 +30,9 @@ namespace LibretaDirecciones.Bussiness
                 user.Password = password;
         }
 
-        public void ActivarUsuario(string nombreUsuario)
+        public void CambiarEstado(int id, bool activo)
         {
-            var user = _repository.GetById(nombreUsuario);
+            var user = _repository.GetById(id);
             if (user != null)
             {
                 if (string.IsNullOrEmpty(user.Password))
@@ -40,7 +40,7 @@ namespace LibretaDirecciones.Bussiness
                     //Ex informando que debe setear el pass
                 }
                 else
-                    user.Activo = true;
+                    user.Activo = activo;
 
                 _repository.Update(user);
             }

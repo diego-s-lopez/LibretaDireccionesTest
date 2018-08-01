@@ -14,9 +14,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\LibretaDirecciones.Model\LibretaDirecciones.Model.csproj" />
     <ProjectReference Include="..\LibretaDirecciones.Bussiness\LibretaDirecciones.Bussiness.csproj" />
     <ProjectReference Include="..\LibretaDirecciones.DataAccess\LibretaDirecciones.DataAccess.csproj" />
+    <ProjectReference Include="..\LibretaDirecciones.Model\LibretaDirecciones.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\css\" />
   </ItemGroup>
 
 </Project>

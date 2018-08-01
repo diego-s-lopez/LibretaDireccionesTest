@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibretaDirecciones", "LibretaDirecciones\LibretaDirecciones.csproj", "{EE3673DC-A400-4173-878E-AB48C9E0644E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibretaDirecciones.Model", "..\LibretaDirecciones.Model\LibretaDirecciones.Model.csproj", "{F46A0740-A0E7-4940-875A-B91562E50DFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibretaDirecciones.Model", "LibretaDirecciones.Model\LibretaDirecciones.Model.csproj", "{F46A0740-A0E7-4940-875A-B91562E50DFB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibretaDirecciones.Bussiness", "LibretaDirecciones.Bussiness\LibretaDirecciones.Bussiness.csproj", "{96A2A44D-5805-487B-BBCC-966FD8E0A109}"
 EndProject
