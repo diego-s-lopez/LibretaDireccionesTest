@@ -26,6 +26,12 @@ namespace LibretaDirecciones.DataAccess
                 return _data.OrderBy(x=> x.Id).ToList();
         }
 
+        public ICollection<Usuario> GetAll(int page, int cant)
+        {
+            lock (_data)
+                return _data.OrderBy(x => x.Id).Skip(cant * page).Take(cant).ToList();
+        }
+
         public void Create(Usuario obj)
         {
             lock (_data)

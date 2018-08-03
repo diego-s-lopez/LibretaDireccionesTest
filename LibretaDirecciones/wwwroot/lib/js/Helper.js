@@ -4,3 +4,10 @@
         callback
     );
 }
+
+function Get(controller, method, data, callback) {
+        $.get(controller + "/" + method,
+            data,
+            callback
+        );
+}

@@ -45,14 +45,26 @@ namespace LibretaDirecciones.Bussiness
                 _repository.Update(user);
             }
         }
+        public void BorrarUsuario(int id)
+        {
+            _repository.DeleteById(id);
+        }
 
         public ICollection<Usuario> ListarUsuarios() => _repository.GetAll();
+        public ICollection<Usuario> ListarUsuarios(int page = 0, int cant = 10) => _repository.GetAll(page, cant);
 
         private void InitTestData()
         {
-            _repository.Create(new Usuario{ Nombre = "Diego", NombreUsuario = "DiegoNombreUsuario",Password = "SoyUnaClave", Activo = true});
-            _repository.Create(new Usuario{ Nombre = "Carlos", NombreUsuario = "CarlosNombreUsuario",Password = "SoyUnaClave"});
-            _repository.Create(new Usuario{ Nombre = "Pepe", NombreUsuario = "PepeNombreUsuario", Password = "SoyUnaClave", Activo = true});
+            for (int i = 0; i < 53; i++)
+            {
+                _repository.Create(new Usuario
+                {
+                    Nombre = $"Nombre de Test {i}",
+                    NombreUsuario = $"NombreUsuario{i}",
+                    Password = $"SoyUnaClave{i}",
+                    Activo = i % 4 != 0
+                });
+            }
         }
 
         public UsuarioService(IRepository<Usuario> repository)

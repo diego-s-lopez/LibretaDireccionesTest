@@ -6,41 +6,31 @@
 <!DOCTYPE html>
 
 <div class="container">
+
     <div class="row">
-        <div class="col">
-            Nombre de Usuario
-        </div>
-        <div class="col">
-            Nombre
-        </div>
-        <div class="col-md-2">
-            Activo
+        <div class="col-md-1">Buscar: </div>
+        <div class="col-md-1">
+            <input class="text-dark"/>
         </div>
     </div>
-    @foreach (var usuario in Model.Usuarios)
-    {
-        <div class="row">
-            <div class="col">
-                @usuario.NombreUsuario
-            </div>
-            <div class="col">
-                @usuario.Nombre
-            </div>
-            <div class="col-md-2">
-                @{
-                    string btnValue = usuario.Activo ? "Desactivar" : "Activar";
-                    string activo = usuario.Activo ? "1" : "";
-                }
-                <button data-activo="@activo" onclick="ChangeUserActivo(this, @usuario.Id)">@btnValue</button>
-
-                @*@Html.CheckBoxFor(u => usuario.Activo, new
-                {
-                    id = $"chkUserActivo_{usuario.Id}",
-                    onchange = $"ChangeUserActivo(this, {usuario.Id})"
-                })*@
-            </div>
+    <hr/>
+    <div class="row">
+        <div id="divTablaUsuarios" class="col-md-12">
+            
         </div>
-    }
+    </div>
+    
+    <div class="row">
+        <div class="col-md-1">
+            <button id="btnPrevPage" class="btn-toolbar">&lt;-</button>
+        </div>
+        <div class="col-md-1">
+            <label class="text-center text-dark" id="lblPage">1</label>
+        </div>
+        <button id="btnNextPage" class="btn-toolbar">-&gt;</button>
+        <div class="col-md-9"></div>
+    </div>
+
 </div>
 
 @section Scripts
