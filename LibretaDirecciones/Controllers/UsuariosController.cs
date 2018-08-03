@@ -26,6 +26,22 @@ namespace LibretaDirecciones.Controllers
             return View(resp);
         }
 
+        public IActionResult Edit(int idUsuario = 0)
+        {
+            if (idUsuario==0)
+                return View(new UsuarioViewModel());
+            else
+            {
+                var usuario = _service.GetUsuarioById(idUsuario);
+                if (usuario == null)
+                    return NotFound();
+                else
+                {
+                    return View(usuario);
+                }
+            }
+        }
+
         [HttpGet]
         public IActionResult GetUsuarios(int page = 0, int cant = 10)
         {

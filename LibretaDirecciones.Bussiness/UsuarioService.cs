@@ -53,6 +53,8 @@ namespace LibretaDirecciones.Bussiness
         public ICollection<Usuario> ListarUsuarios() => _repository.GetAll();
         public ICollection<Usuario> ListarUsuarios(int page = 0, int cant = 10) => _repository.GetAll(page, cant);
 
+        public Usuario GetUsuarioById(int idUsuario) => _repository.GetById(idUsuario);
+
         private void InitTestData()
         {
             for (int i = 0; i < 53; i++)
